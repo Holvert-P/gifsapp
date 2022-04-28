@@ -39,7 +39,11 @@ export class GifsService {
     this.http
       .get<SearchGifsResponse>(`${this.URL}/search?`, { params })
       .subscribe(({ data }) => {
-        this.data = data;
+        const optimizedData = data.map(({ images, title }) => ({
+          images: { downsized_large: { url: images.downsized_large.url } },
+          title,
+        }));
+        this.data = optimizedData;
 
         // guardar en localStorage los datos
         localStorage.setItem('data', JSON.stringify(this.data));

@@ -1,15 +1,15 @@
 <section class="row" *ngIf="data.length !== 0;else noData">
-  <div class="col-md-4 col-sm-6 p-2 animate__animated animate__fadeIn" *ngFor="let gif of data">
+  <article class="col-md-4 col-sm-6 p-2 animate__animated animate__flipInX" *ngFor="let gif of data">
     <div class="card">
       <figure class="figure card-body">
         <img src={{gif.images.downsized_large.url}} class="figure-img img-fluid rounded card-img-top" alt={{gif.title}}>
         <figcaption class="figure-caption text-xs-right card-text">{{gif.title}}</figcaption>
       </figure>
     </div>
-  </div>
+  </article>
 </section>
 <ng-template #noData>
-  <div class="alert alert-warning animate__animated animate__fadeIn" role="alert">
+  <div class="alert alert-warning animate__animated animate__flipInX" role="alert">
     No hay resultados para la búsqueda
   </div>
 </ng-template>
